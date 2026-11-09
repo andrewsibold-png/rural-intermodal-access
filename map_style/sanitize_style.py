@@ -23,7 +23,9 @@ from pathlib import Path
 from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 HERE = Path(__file__).resolve().parent
-ACCOUNT_KEYS = {"owner", "created", "modified", "visibility", "draft", "protected"}
+ACCOUNT_KEYS = {"id", "owner", "created", "modified", "visibility", "draft", "protected"}
+# Studio editor state: thumbnails, linked datasets, print and cursor settings.
+EDITOR_METADATA = {"mapbox:thumb", "mapbox:datasets", "mapbox:print", "mapbox:trackposition"}
 TOKEN_PARAMS = {"access_token", "token", "key", "apikey", "api_key"}
 TOKEN_RE = re.compile(r"\b[pst]k\.[A-Za-z0-9_\-]{20,}\.[A-Za-z0-9_\-]{10,}")
 
@@ -54,14 +56,17 @@ def tileset_table(style: dict) -> str:
     layers_by_source: dict[str, list[str]] = {}
     for layer in style.get("layers", []):
         if "source" in layer:
-            layers_by_source.setdefault(layer["source"], []).append(layer["id"])
+            sl = layer.get("source-layer")
+            label = f"{layer['id']} ({layer.get('type')}{', source-layer ' + sl if sl else ''})"
+            layers_by_source.setdefault(layer["source"], []).append(label)
     rows = []
     for name, src in style.get("sources", {}).items():
         url = src.get("url") or ", ".join(src.get("tiles", [])) or ("inline GeoJSON" if src.get("type") == "geojson" else "")
         if url.startswith("mapbox://"):
             ids = url.removeprefix("mapbox://").split(",")
-            public = all(i.startswith("mapbox.") for i in ids)
-            origin = "Mapbox public tileset" if public else "Account tileset (must be re-created by the user)"
+            origin = "; ".join(
+                f"`{i}`: " + ("Mapbox public" if i.startswith("mapbox.") else "account tileset, re-create")
+                for i in ids)
         else:
             origin = "External URL" if url else "Inline"
         rows.append(f"| `{name}` | {src.get('type', '')} | `{url}` | {origin} | "
@@ -89,6 +94,8 @@ def main() -> None:
     style = load(Path(sys.argv[1]))
     for k in ACCOUNT_KEYS:
         style.pop(k, None)
+    for k in EDITOR_METADATA:
+        style.get("metadata", {}).pop(k, None)
     style = strip_tokens(style)
     text = json.dumps(style, indent=2, ensure_ascii=False)
     leaks = TOKEN_RE.findall(text)

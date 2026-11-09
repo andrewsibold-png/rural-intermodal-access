@@ -1,0 +1,181 @@
+{
+  "version": 8,
+  "name": "Intermodal Rura Access",
+  "metadata": {
+    "mapbox:autocomposite": true,
+    "mapbox:uiParadigm": "layers",
+    "mapbox:sdk-support": {
+      "js": "3.29.0",
+      "android": "11.30.0",
+      "ios": "11.30.0"
+    },
+    "mapbox:groups": {}
+  },
+  "center": [
+    -78.46242656388746,
+    39.35294709237979
+  ],
+  "zoom": 6.374783832195017,
+  "bearing": 0,
+  "pitch": 0,
+  "terrain": null,
+  "imports": [
+    {
+      "id": "basemap",
+      "url": "mapbox://styles/mapbox/standard",
+      "config": {
+        "colorTrunks": "hsl(235, 20%, 80%)",
+        "backgroundPointOfInterestLabels": "none",
+        "colorRoadLabels": "hsl(0, 0%, 40%)",
+        "colorPlaceLabels": "hsl(0, 0%, 20%)",
+        "show3dObjects": false,
+        "densityPointOfInterestLabels": 1,
+        "theme": "monochrome",
+        "colorModePointOfInterestLabels": "single",
+        "colorPointOfInterestLabels": "#848e94",
+        "colorRoads": "hsl(224, 25%, 82%)",
+        "showPointOfInterestLabels": true,
+        "colorAdminBoundaries": "#0a0003",
+        "colorWater": "hsl(200, 100%, 84%)",
+        "lightPreset": "day",
+        "showTransitLabels": false,
+        "colorMotorways": "hsl(214, 23%, 80%)",
+        "showPedestrianRoads": true,
+        "showRoadLabels": true
+      }
+    }
+  ],
+  "sources": {
+    "mapbox://asibold-iana.4lo30qau59io": {
+      "type": "vector",
+      "url": "mapbox://asibold-iana.4lo30qau59io"
+    },
+    "mapbox://asibold-iana.xtty9bk8zkxy": {
+      "type": "vector",
+      "url": "mapbox://asibold-iana.xtty9bk8zkxy"
+    },
+    "mapbox://asibold-iana.9ciqeyf9bc3x": {
+      "type": "vector",
+      "url": "mapbox://asibold-iana.9ciqeyf9bc3x"
+    },
+    "composite": {
+      "type": "vector",
+      "url": "mapbox://asibold-iana.0kawer,mapbox.mapbox-streets-v8"
+    }
+  },
+  "sprite": "mapbox://sprites/asibold-iana/cmw9nrt9j002101s1e5231fpq/b8fjw435hx85pp7j172f016pl",
+  "glyphs": "mapbox://fonts/mapbox/{fontstack}/{range}.pbf",
+  "projection": {
+    "name": "globe"
+  },
+  "layers": [
+    {
+      "id": "cb-2018-us-state-500k-zip-wjnxkc",
+      "type": "line",
+      "source": "composite",
+      "source-layer": "cb_2018_us_state_500k.zip-wjnxkc",
+      "slot": "",
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round"
+      },
+      "paint": {
+        "line-emissive-strength": 1,
+        "line-color": "#69757d",
+        "line-opacity": 0.71,
+        "line-width": 2
+      }
+    },
+    {
+      "id": "urban-areas",
+      "type": "fill",
+      "source": "mapbox://asibold-iana.xtty9bk8zkxy",
+      "source-layer": "y4f3bx6e6afp93joph83",
+      "layout": {},
+      "paint": {
+        "fill-emissive-strength": 1,
+        "fill-color": "#c3c7cc",
+        "fill-outline-color": "#c3c7cc",
+        "fill-opacity": 0.65
+      }
+    },
+    {
+      "id": "rural-access",
+      "type": "fill",
+      "source": "mapbox://asibold-iana.4lo30qau59io",
+      "source-layer": "ms2jrx3bhjz5cro4lxg2",
+      "slot": "",
+      "layout": {
+        "fill-sort-key": [
+          "get",
+          "nearest_terminal_objectid"
+        ]
+      },
+      "paint": {
+        "fill-emissive-strength": 1,
+        "fill-color": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "get",
+            "distance_mi"
+          ],
+          0.21,
+          "#edf8e9",
+          25,
+          "#bae4bc",
+          50,
+          "#74c476",
+          100,
+          "#31a354",
+          150,
+          "#006d2c"
+        ],
+        "fill-opacity": 0.65,
+        "fill-outline-color": "rgba(0, 0, 0, 0)"
+      }
+    },
+    {
+      "id": "admin",
+      "type": "line",
+      "source": "composite",
+      "source-layer": "admin",
+      "filter": [
+        "match",
+        [
+          "get",
+          "admin_level"
+        ],
+        [
+          1
+        ],
+        true,
+        false
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round"
+      },
+      "paint": {
+        "line-emissive-strength": 1,
+        "line-color": "#69757d",
+        "line-width": 1.5
+      }
+    },
+    {
+      "id": "terminals",
+      "type": "circle",
+      "source": "mapbox://asibold-iana.9ciqeyf9bc3x",
+      "source-layer": "7w0rlwqepnprq4pttcyf",
+      "layout": {},
+      "paint": {
+        "circle-emissive-strength": 1,
+        "circle-color": "#d4a72c",
+        "circle-stroke-width": 1,
+        "circle-stroke-color": "#16324f"
+      }
+    }
+  ]
+}
