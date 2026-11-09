@@ -1,0 +1,120 @@
+{
+  "generated_utc": "2026-11-09T21:03:54+00:00",
+  "sources": {
+    "state_boundaries": {
+      "file": "cb_2018_us_state_500k.zip",
+      "file_modified": "2026-11-09T13:39:20",
+      "crs": "EPSG:4269",
+      "geometry_type": "Polygon",
+      "feature_count": 56,
+      "fields": {
+        "STATEFP": "object",
+        "STATENS": "object",
+        "AFFGEOID": "object",
+        "GEOID": "object",
+        "STUSPS": "object",
+        "NAME": "object",
+        "LSAD": "object",
+        "ALAND": "int64",
+        "AWATER": "int64"
+      },
+      "description": "U.S. Census Bureau cartographic boundary file, states, 2018, 1:500k"
+    },
+    "urban_areas": {
+      "file": "tl_2024_us_uac20.zip",
+      "file_modified": "2026-11-09T13:38:36",
+      "crs": "EPSG:4269",
+      "geometry_type": "Polygon",
+      "feature_count": 2644,
+      "fields": {
+        "UACE20": "object",
+        "GEOID20": "object",
+        "GEOIDFQ20": "object",
+        "NAME20": "object",
+        "NAMELSAD20": "object",
+        "LSAD20": "object",
+        "MTFCC20": "object",
+        "FUNCSTAT20": "object",
+        "ALAND20": "int64",
+        "AWATER20": "int64",
+        "INTPTLAT20": "object",
+        "INTPTLON20": "object"
+      },
+      "description": "U.S. Census Bureau TIGER/Line 2024 release of 2020 Census urban areas (UAC20)"
+    },
+    "terminals": {
+      "file": "NTAD_Intermodal_Freight_Facilities_Rail_TOFC_COFC_5929809478813660340.geojson",
+      "file_modified": "2026-11-09T13:38:13",
+      "crs": "EPSG:4326",
+      "geometry_type": "Point",
+      "feature_count": 241,
+      "fields": {
+        "OBJECTID": "int32",
+        "TERMINAL": "object",
+        "TERM_ADDRESS": "object",
+        "CITY": "object",
+        "STATE": "object",
+        "ZIP_CODE": "object",
+        "PORT": "object",
+        "RAIL_CO": "object",
+        "EQUIPMENT": "object",
+        "ACCESS_RD": "object",
+        "SPLC": "object",
+        "LAT": "float64",
+        "LON": "float64"
+      },
+      "published_date": "2024-07-10T00:00:00-04:00",
+      "published_date_source": "BTS catalog page (Published Date: July 10, 2024, 12:00:00 AM EDT); not embedded in the file",
+      "description": "BTS National Transportation Atlas Database, Intermodal Freight Facilities, Rail TOFC/COFC. file_modified is the local download timestamp. Operating status not provided or assumed."
+    }
+  },
+  "study_region": [
+    "PA",
+    "MD",
+    "DE",
+    "VA",
+    "WV"
+  ],
+  "grid": {
+    "crs": "EPSG:5070",
+    "cell_size_m": 5000,
+    "origin": "snapped to multiples of cell size in EPSG:5070"
+  },
+  "rural_definition": "Grid cells clipped to the study region minus 2020 Census urban areas; disconnected remnants exploded into separate features.",
+  "distance_method": {
+    "type": "Straight-line geodesic distance on the WGS84 ellipsoid (pyproj.Geod.inv)",
+    "origin_point": "Interior representative point of each rural polygon (shapely representative_point)",
+    "candidates": "All valid U.S. terminals nationally, including those outside the study region",
+    "datum_note": "NAD83 inputs treated as coincident with WGS84 (sub-2 m difference, immaterial at mile scale)",
+    "units": "miles, metres / 1609.344",
+    "tie_rule": "lowest OBJECTID",
+    "not_network_distance": "Distances are not road or rail network distances.",
+    "within_cell_variation": "Distance is evaluated at one sample point per polygon. Nearest-terminal distance changes by at most the distance moved, so within a 5-km cell it can differ from the reported value by up to the cell diagonal (4.4 mi). Acceptable for an exploratory map."
+  },
+  "distance_bands": {
+    "labels": [
+      "Under 25 miles",
+      "25\u2013under 50 miles",
+      "50\u2013under 100 miles",
+      "100\u2013under 150 miles",
+      "150 miles or more"
+    ],
+    "edges_mi": [
+      25,
+      50,
+      100,
+      150
+    ],
+    "rule": "lower bound inclusive, upper bound exclusive",
+    "note": "Display categories only; not commercial viability thresholds."
+  },
+  "output_crs": "EPSG:4326",
+  "outputs": [
+    "rural_access.geojson",
+    "urban_areas.geojson",
+    "terminals.geojson",
+    "qa_report.json",
+    "qa_terminal_issues.csv",
+    "qa_validation_samples.csv"
+  ]
+}

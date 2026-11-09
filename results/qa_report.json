@@ -1,0 +1,229 @@
+{
+  "generated_utc": "2026-11-09T21:03:54+00:00",
+  "geometry_checks": {
+    "states": {
+      "features": 5,
+      "null_or_empty": 0,
+      "invalid_repaired": 0
+    },
+    "urban_areas": {
+      "features": 325,
+      "null_or_empty": 0,
+      "invalid_repaired": 0
+    },
+    "rural_pieces": {
+      "features": 15801,
+      "null_or_empty": 0,
+      "invalid_repaired": 0
+    }
+  },
+  "study_area_km2": 316795.0,
+  "grid_cells_intersecting_study_area": 13245,
+  "overlay_artifacts_removed": {
+    "threshold_m2": 1e-06,
+    "count": 20,
+    "max_area_m2": 1.1401941941980003e-08,
+    "grid_row_col": [
+      [
+        55,
+        110
+      ],
+      [
+        59,
+        119
+      ],
+      [
+        74,
+        119
+      ],
+      [
+        77,
+        114
+      ],
+      [
+        77,
+        114
+      ],
+      [
+        78,
+        113
+      ],
+      [
+        78,
+        113
+      ],
+      [
+        78,
+        114
+      ],
+      [
+        87,
+        120
+      ],
+      [
+        87,
+        120
+      ],
+      [
+        87,
+        121
+      ],
+      [
+        106,
+        138
+      ],
+      [
+        106,
+        138
+      ],
+      [
+        107,
+        136
+      ],
+      [
+        107,
+        136
+      ],
+      [
+        107,
+        136
+      ],
+      [
+        107,
+        136
+      ],
+      [
+        107,
+        137
+      ],
+      [
+        108,
+        136
+      ],
+      [
+        108,
+        136
+      ]
+    ],
+    "note": "Zero-width slivers along shared edges of adjacent urban polygons; not rural land."
+  },
+  "rural_pieces": {
+    "clipped_cells": 13245,
+    "cells_fully_urban": 273,
+    "rural_pieces_after_explode": 15801,
+    "cells_split_into_multiple_pieces": 1389,
+    "slivers_under_0.01_km2_retained": 935,
+    "rural_area_km2": 291340.3
+  },
+  "terminals": {
+    "records": 241,
+    "nearest_neighbor_candidates": 241,
+    "excluded_as_candidates": 0,
+    "duplicate_location_records": 0,
+    "duplicate_name_address_records": 0,
+    "operating_status": "not available in source; all records treated as listed, status not assumed",
+    "exported_for_display": 40
+  },
+  "distances": {
+    "missing_distances": 0,
+    "min_mi": 0.21,
+    "p25_mi": 29.01,
+    "median_mi": 53.42,
+    "mean_mi": 59.16,
+    "p75_mi": 82.27,
+    "max_mi": 155.87,
+    "pieces_by_band": {
+      "Under 25 miles": 3101,
+      "25\u2013under 50 miles": 4299,
+      "50\u2013under 100 miles": 5976,
+      "100\u2013under 150 miles": 2326,
+      "150 miles or more": 99
+    },
+    "area_km2_by_band": {
+      "Under 25 miles": 38716.0,
+      "25\u2013under 50 miles": 81233.9,
+      "50\u2013under 100 miles": 119281.1,
+      "100\u2013under 150 miles": 49783.0,
+      "150 miles or more": 2326.3
+    },
+    "distinct_nearest_terminals": 29
+  },
+  "validation_seed": 3859030174,
+  "validation_checks": {
+    "1_near_terminal_distances": {
+      "status": "PASS",
+      "summary": "9/9 sampled pieces within 5 km of a terminal report <= 3.11 mi and <= the distance to that terminal",
+      "terminals_with_nearby_rural_points": 9
+    },
+    "2_border_out_of_region_eligible": {
+      "status": "PASS",
+      "summary": "3,366 pieces within 10 km of the boundary; 1,100 of them use an out-of-region terminal; brute-force recheck of 500: 0 mismatches",
+      "all_pieces_nearest_out_of_region": 4235,
+      "sampled_pieces_where_out_of_region_is_closer": 152,
+      "max_overstatement_if_region_only_mi": 198.13
+    },
+    "3_urban_exclusion": {
+      "status": "PASS",
+      "summary": "5,479 rural/urban pairs touch; 0 overlap by more than 1.0 m2 (max 0.0000 m2); 0 sample points inside urban areas",
+      "touching_pairs": 5479,
+      "max_overlap_m2": 2.2977579848472603e-08,
+      "total_overlap_m2": 3.8397330424550804e-07,
+      "sample_points_inside_urban": 0
+    },
+    "5_most_distant_review": {
+      "status": "PASS",
+      "summary": "top 15 pieces (154.2-155.9 mi); 0 excluded and 0 misplaced terminal records nationally; 0 distant pieces would be closer to one of them",
+      "states_of_top_pieces": {
+        "WV": 15
+      },
+      "manual_review": "Confirm against current BTS/railroad sources that no active TOFC/COFC facility serves these areas; source inclusion is not independently verified."
+    },
+    "4_distance_mi_numeric": {
+      "status": "PASS",
+      "summary": "15,787 features; 0 non-numeric, 0 non-finite; re-read dtype float64",
+      "json_value_types": [
+        "float"
+      ],
+      "reread_dtype": "float64"
+    }
+  },
+  "within_cell_variation": {
+    "sampled_full_cells": 300,
+    "median_max_corner_deviation_mi": 2.06,
+    "p95_max_corner_deviation_mi": 2.19,
+    "max_corner_deviation_mi": 2.21,
+    "theoretical_bound_mi": 4.39,
+    "note": "Distance is evaluated at one sample point per polygon. Nearest-terminal distance changes by at most the distance moved, so within a 5-km cell it can differ from the reported value by up to the cell diagonal (4.4 mi). Acceptable for an exploratory map."
+  },
+  "export_precision": {
+    "rural_access.geojson": {
+      "grid_degrees": 1e-06,
+      "collapsed_features_removed": 14,
+      "collapsed_ids": [
+        "r030c127p0",
+        "r030c128p2",
+        "r030c129p1",
+        "r030c132p2",
+        "r031c123p2",
+        "r036c124p1",
+        "r059c119p3",
+        "r066c106p1",
+        "r080c115p3",
+        "r085c117p3",
+        "r108c136p1",
+        "r110c039p3",
+        "r111c039p1",
+        "r111c039p3"
+      ],
+      "multipart_after_snap": 7,
+      "invalid_after_snap": 0
+    },
+    "urban_areas.geojson": {
+      "grid_degrees": 1e-06,
+      "collapsed_features_removed": 0,
+      "collapsed_ids": [],
+      "multipart_after_snap": 183,
+      "invalid_after_snap": 0
+    }
+  }
+}

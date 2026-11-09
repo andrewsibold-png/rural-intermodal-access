@@ -1,0 +1,271 @@
+{
+  "generated_utc": "2026-11-09T21:12:32+00:00",
+  "geometry_check": {
+    "non_polygonal": 0,
+    "invalid": 0,
+    "non_polygonal_ids": []
+  },
+  "input": {
+    "file": "rural_access.geojson",
+    "polygons": 15787,
+    "source_crs": "EPSG:4326",
+    "distance_mi_dtype_on_read": "float64",
+    "non_numeric_values": 0,
+    "missing_distance_polygons": 0,
+    "missing_distance_km2": 0.0,
+    "total_area_km2": 291340.3
+  },
+  "rural_verification": {
+    "urban_overlap_km2": 0.0048,
+    "urban_overlap_pct": 0.0,
+    "status": "PASS",
+    "area_outside_study_states_km2": 0.0229,
+    "note": "Residual overlap reflects 6-decimal coordinate rounding in the GeoJSON export."
+  },
+  "water_source": {
+    "dataset": "U.S. Census Bureau TIGER/Line 2024 AREAWATER (county files)",
+    "counties": 282,
+    "files_failed": [],
+    "counties_using_2023_vintage": [
+      "51185"
+    ],
+    "cache_dir": "Inputs\\tl_2024_areawater"
+  },
+  "results": [
+    {
+      "scope": "Study region (PA, MD, DE, VA, WV)",
+      "mapped_rural_km2": 291340.298,
+      "missing_distance_km2": 0.0,
+      "assessed_km2": 291340.298,
+      "water_km2": 5707.118,
+      "gt50_km2": 171365.399,
+      "pct_gt50": 58.82,
+      "land_only_pct_gt50": 59.027,
+      "gt100_km2": 52109.281,
+      "pct_gt100": 17.886,
+      "land_only_pct_gt100": 18.128,
+      "pct_water": 1.959
+    },
+    {
+      "scope": "PA",
+      "mapped_rural_km2": 106340.729,
+      "missing_distance_km2": 0.0,
+      "assessed_km2": 106340.729,
+      "water_km2": 1274.478,
+      "gt50_km2": 44247.013,
+      "pct_gt50": 41.609,
+      "land_only_pct_gt50": 41.753,
+      "gt100_km2": 225.001,
+      "pct_gt100": 0.212,
+      "land_only_pct_gt100": 0.213,
+      "pct_water": 1.198
+    },
+    {
+      "scope": "MD",
+      "mapped_rural_km2": 21806.464,
+      "missing_distance_km2": 0.0,
+      "assessed_km2": 21806.464,
+      "water_km2": 1397.224,
+      "gt50_km2": 9488.735,
+      "pct_gt50": 43.513,
+      "land_only_pct_gt50": 42.51,
+      "gt100_km2": 41.19,
+      "pct_gt100": 0.189,
+      "land_only_pct_gt100": 0.03,
+      "pct_water": 6.407
+    },
+    {
+      "scope": "DE",
+      "mapped_rural_km2": 4077.838,
+      "missing_distance_km2": 0.0,
+      "assessed_km2": 4077.838,
+      "water_km2": 145.767,
+      "gt50_km2": 2062.345,
+      "pct_gt50": 50.574,
+      "land_only_pct_gt50": 49.972,
+      "gt100_km2": 0.0,
+      "pct_gt100": 0.0,
+      "land_only_pct_gt100": 0.0,
+      "pct_water": 3.575
+    },
+    {
+      "scope": "VA",
+      "mapped_rural_km2": 97818.471,
+      "missing_distance_km2": 0.0,
+      "assessed_km2": 97818.471,
+      "water_km2": 2455.515,
+      "gt50_km2": 60851.677,
+      "pct_gt50": 62.209,
+      "land_only_pct_gt50": 62.656,
+      "gt100_km2": 17313.443,
+      "pct_gt100": 17.7,
+      "land_only_pct_gt100": 18.044,
+      "pct_water": 2.51
+    },
+    {
+      "scope": "WV",
+      "mapped_rural_km2": 61296.796,
+      "missing_distance_km2": 0.0,
+      "assessed_km2": 61296.796,
+      "water_km2": 434.133,
+      "gt50_km2": 54715.63,
+      "pct_gt50": 89.263,
+      "land_only_pct_gt50": 89.286,
+      "gt100_km2": 34529.647,
+      "pct_gt100": 56.332,
+      "land_only_pct_gt100": 56.425,
+      "pct_water": 0.708
+    }
+  ],
+  "water_by_type_km2": [
+    {
+      "STUSPS": "DE",
+      "type": "Bay/estuary/gulf/sound",
+      "km2": 74.79
+    },
+    {
+      "STUSPS": "DE",
+      "type": "Canal/ditch/aqueduct",
+      "km2": 4.91
+    },
+    {
+      "STUSPS": "DE",
+      "type": "Lake/pond",
+      "km2": 26.19
+    },
+    {
+      "STUSPS": "DE",
+      "type": "Ocean/sea",
+      "km2": 0.88
+    },
+    {
+      "STUSPS": "DE",
+      "type": "Reservoir",
+      "km2": 0.79
+    },
+    {
+      "STUSPS": "DE",
+      "type": "Stream/river",
+      "km2": 38.21
+    },
+    {
+      "STUSPS": "MD",
+      "type": "Bay/estuary/gulf/sound",
+      "km2": 346.01
+    },
+    {
+      "STUSPS": "MD",
+      "type": "Braided stream",
+      "km2": 0.0
+    },
+    {
+      "STUSPS": "MD",
+      "type": "Canal/ditch/aqueduct",
+      "km2": 5.29
+    },
+    {
+      "STUSPS": "MD",
+      "type": "Lake/pond",
+      "km2": 151.42
+    },
+    {
+      "STUSPS": "MD",
+      "type": "Ocean/sea",
+      "km2": 0.68
+    },
+    {
+      "STUSPS": "MD",
+      "type": "Reservoir",
+      "km2": 27.07
+    },
+    {
+      "STUSPS": "MD",
+      "type": "Stream/river",
+      "km2": 866.76
+    },
+    {
+      "STUSPS": "PA",
+      "type": "Bay/estuary/gulf/sound",
+      "km2": 17.9
+    },
+    {
+      "STUSPS": "PA",
+      "type": "Canal/ditch/aqueduct",
+      "km2": 0.1
+    },
+    {
+      "STUSPS": "PA",
+      "type": "Lake/pond",
+      "km2": 634.97
+    },
+    {
+      "STUSPS": "PA",
+      "type": "Reservoir",
+      "km2": 116.43
+    },
+    {
+      "STUSPS": "PA",
+      "type": "Stream/river",
+      "km2": 505.03
+    },
+    {
+      "STUSPS": "PA",
+      "type": "Treatment pond",
+      "km2": 0.04
+    },
+    {
+      "STUSPS": "VA",
+      "type": "Bay/estuary/gulf/sound",
+      "km2": 708.27
+    },
+    {
+      "STUSPS": "VA",
+      "type": "Canal/ditch/aqueduct",
+      "km2": 2.07
+    },
+    {
+      "STUSPS": "VA",
+      "type": "Lake/pond",
+      "km2": 596.2
+    },
+    {
+      "STUSPS": "VA",
+      "type": "Ocean/sea",
+      "km2": 5.67
+    },
+    {
+      "STUSPS": "VA",
+      "type": "Reservoir",
+      "km2": 183.83
+    },
+    {
+      "STUSPS": "VA",
+      "type": "Stream/river",
+      "km2": 959.63
+    },
+    {
+      "STUSPS": "WV",
+      "type": "Lake/pond",
+      "km2": 141.95
+    },
+    {
+      "STUSPS": "WV",
+      "type": "Reservoir",
+      "km2": 10.28
+    },
+    {
+      "STUSPS": "WV",
+      "type": "Stream/river",
+      "km2": 281.9
+    }
+  ],
+  "method": {
+    "area_crs": "EPSG:5070",
+    "measure": "Area-weighted share of mapped rural territory with distance_mi strictly greater than 50 and 100 miles (straight-line geodesic distance to nearest rail TOFC/COFC terminal).",
+    "denominator": "Mapped rural area with a non-missing distance; missing-distance area reported separately.",
+    "state_assignment": "Rural polygons intersected with 2018 Census cartographic state boundaries; polygons crossing a state line are split and their area allocated by location.",
+    "sample_point_caveat": "Each polygon's distance is measured at one interior sample point and applied to the whole polygon; within a 5-km cell the true distance varies by about 2 mi. Shares are therefore approximate.",
+    "water": "Mapped rural territory follows shoreline-clipped state boundaries, so it includes inland water (lakes, reservoirs, rivers). Land-only shares remove TIGER AREAWATER polygons and are a sensitivity check.",
+    "scope_limit": "Results describe territory (area) only. They are not shares of residents, businesses, establishments or freight volume."
+  }
+}
